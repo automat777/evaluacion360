@@ -7,5 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/evaluaciones/crear', [EvaluacionController::class, 'create'])->name('evaluaciones.create');
+Route::get('/evaluaciones/relacion', [EvaluacionController::class, 'create'])->name('evaluaciones.create');
 Route::post('/evaluaciones', [EvaluacionController::class, 'store'])->name('evaluaciones.store');
