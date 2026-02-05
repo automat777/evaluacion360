@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvaluacionController;
+use App\Http\Controllers\CalificacionController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -9,3 +11,9 @@ Route::get('/', function () {
 
 Route::get('/evaluaciones/relacion', [EvaluacionController::class, 'create'])->name('evaluaciones.create');
 Route::post('/evaluaciones', [EvaluacionController::class, 'store'])->name('evaluaciones.store');
+
+// Ruta para mostrar el formulario
+Route::get('/calificacion', [CalificacionController::class, 'index'])->name('calificacion.index');
+
+// Ruta para procesar y guardar los datos
+Route::post('/calificacion', [CalificacionController::class, 'store'])->name('calificacion.store');
