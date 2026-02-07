@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\CalificacionController;
+use App\Http\Controllers\HomeController;
+
+// Página de inicio
+Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 
 Route::get('/', function () {
