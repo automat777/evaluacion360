@@ -281,7 +281,7 @@
 
 <script>
     // URL del Google Apps Script
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxcYWn7oeHYQkpapDSAQDFbD2qL8wKB076avDxVNg8dcEhCZJUOV0RmcGJDuSahrkqmhw/exechttps://script.google.com/macros/s/AKfycbyowtQ1d-F-QY_D2QzakXnT8fzXss25cJfhjTcIRA9DxG0cU6Ib6qsGpzG9zbKLX4VD/exec?action=doPost';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxcYWn7oeHYQkpapDSAQDFbD2qL8wKB076avDxVNg8dcEhCZJUOV0RmcGJDuSahrkqmhw/exec';
 
     // Función para obtener el texto del select (nombre_apellidos)
     function getSelectedText(selectId) {
@@ -293,7 +293,6 @@
     function validarFormulario() {
         const evaluadorId = document.getElementById('evaluador_id').value;
         const evaluadoId = document.getElementById('evaluado_id').value;
-        
         if (!evaluadorId || !evaluadoId) {
             alert('Por favor selecciona evaluador y evaluado');
             return false;
@@ -363,10 +362,10 @@
     async function enviarCompetenciaAGoogleSheets(evaluador, evaluado, competencia, fecha, index, total) {
         try {
             const datos = new FormData();
-            datos.append('evaluador', evaluador);
-            datos.append('evaluado', evaluado);
-            datos.append('competencia_nombre', competencia.nombre);
-            datos.append('nota', competencia.nota);
+            datos.append('Evaluador', evaluador);
+            datos.append('Evaluado', evaluado);
+            datos.append('AreaCompetencia', competencia.nombre);
+            datos.append('Calificacion', competencia.nota);
 
             await fetch(scriptUrl, {
                 method: 'POST',
